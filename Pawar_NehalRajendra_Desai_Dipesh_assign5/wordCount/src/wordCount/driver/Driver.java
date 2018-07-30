@@ -1,68 +1,63 @@
 package wordCount.driver;
 
-import wordCount.util.Results;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
 import wordCount.util.MyLogger;
-import java.util.*;
-
-public class Driver
-{
-    public static void main(String[] args)
-    {
-        
-	
-        //Read all the parameters and vlaidate if all are taken thorugh command line
-
-        for (int i = 0; i < args.length; i++)
-            if (args[i].equals("${arg" + i + "}"))
-            {               
-                System.err.println("incorrect args passed, Expected <input.txt>  <max/k> <debug value>. \n exiting \n");
-                System.exit(1);
-            }
-	
-	String INPUTFILE = args[0];
-        int K = Integer.parseInt(args[1]);
-        String DEBUGVALUE = args[2];
-        try
-        {
-            MyLogger.setDebugValue(Integer.parseInt(args[2]));
-        }
-        catch (Exception e)
-        {
-            System.err.println("fifth argument cannot be parse to integer to set debug value.");
-            System.exit(1);
-        }
-	
-	IVisitor Obj2=new ModifiedBubbleSortVisitor();
-	IVisitor Obj3=new MaxHeapVisitor();	
-        IVisitor Obj=new PopulateVisitor();
-
-	MyVector myv1=new MyVector(); 
-        myv1.setFileName(INPUTFILE);
-	myv1.setK(K);	
-	myv1.accept(Obj);	
-	myv1.accept(Obj2);
-
-	MyVector myv2=new MyVector(); 
-        myv2.setFileName(INPUTFILE);
-	myv2.accept(Obj);        
-	myv2.accept(Obj3);
+import wordCount.util.Results;
 
 
-	MyArray mya1=new MyArray(); 
-	mya1.setFileName(INPUTFILE);
-	mya1.setK(K);
-        mya1.accept(Obj);
-	mya1.accept(Obj2);
-    
-	MyArray mya2=new MyArray(); 
-	mya2.setFileName(INPUTFILE);
-        mya2.accept(Obj);
-	mya2.accept(Obj3);
+/**
+ * @author Dipesh Desai
+ *
+ */
+public class Driver {
+	/**
+	 * This is the main method
+	 * 
+	 * @return Nothing.
+	 */
+	public static String inputFilePath;
+	public static int kVal;
+	public static int debugLevel;
 
-	Results Display=new Results();
-	Display.writeToStdout(myv1.getResults());
-	Display.writeToStdout(myv2.getResults());
-	Display.writeToStdout(mya1.getResults());
-	Display.writeToStdout(mya2.getResults());
-    }
+	public static void main(String[] args)
+			throws FileNotFoundException, NumberFormatException, CloneNotSupportedException {
+		/*
+		 * As the build.xml specifies the arguments as argX, in case the argument value
+		 * is not given java takes the default value specified in build.xml. To avoid
+		 * that, below condition is used
+		 */
+		if (args.length != 3 || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")) {
+			System.err.println("Error: Incorrect number of arguments. Program accepts 3 argumnets.");
+			System.exit(0);
+		}
+
+		Results results = new Results();
+		try {
+			inputFilePath = args[0];
+			File file = new File(inputFilePath);
+			@SuppressWarnings("unused")
+			FileReader fileReader = new FileReader(file);
+		} catch (FileNotFoundException e) {
+			System.err.println("Input File not found, Give the correct path");
+			System.exit(0);
+		}
+
+		try {
+			kVal = Integer.parseInt(args[1]);
+		} catch (NumberFormatException e) {
+			System.err.println("Value of K should be an Integer");
+			System.exit(0);
+		}
+
+		try {
+			debugLevel = Integer.parseInt(args[2]);
+			MyLogger.setDebugValue(debugLevel);
+		} catch (NumberFormatException e) {
+			System.err.println("Debug level argument should be an Integer");
+			System.exit(0);
+		}
+	}
 }
