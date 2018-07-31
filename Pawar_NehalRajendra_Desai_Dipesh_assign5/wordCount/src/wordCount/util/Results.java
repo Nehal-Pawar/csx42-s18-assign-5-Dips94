@@ -1,10 +1,10 @@
-package maxKVisitors.util;
+package wordCount.util;
 
 import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.Vector;
-import maxKVisitors.util.MyLogger;
+import wordCount.util.MyLogger;
 
 public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
 

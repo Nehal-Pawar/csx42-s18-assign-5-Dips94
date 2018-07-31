@@ -1,4 +1,4 @@
-package maxKVisitors.util;
+package wordCount.util;
 
 public interface FileDisplayInterface {
 
