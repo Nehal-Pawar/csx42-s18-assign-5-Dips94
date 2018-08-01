@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+import wordCount.modules.PopulateTree;
+import wordCount.treesForStrings.BST;
 import wordCount.util.MyLogger;
 import wordCount.util.Results;
 
@@ -59,5 +61,8 @@ public class Driver {
 			System.err.println("Debug level argument should be an Integer");
 			System.exit(0);
 		}
+		BST tree=new BST();
+		PopulateTree v1=new PopulateTree();
+		tree.accept(v1); 
 	}
 }

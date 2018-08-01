@@ -1,6 +1,6 @@
 package wordCount.modules;
 
-import wordCount.treesForStrings.Node;
+import wordCount.treesForStrings.BST;
 
 /**
  * @author Dipesh Desai
@@ -8,5 +8,5 @@ import wordCount.treesForStrings.Node;
  */
 
 public interface VisitorI {
-public void visit(Node root);
+public void visit(BST tree);
 }

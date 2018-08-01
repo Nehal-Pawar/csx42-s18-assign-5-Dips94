@@ -1,7 +1,5 @@
 package wordCount.treesForStrings;
 
-import wordCount.modules.VisitorI;
-
 public class Node {
 	public String data;
 	public Node left, right;
@@ -48,8 +46,6 @@ public class Node {
 	public String getData() {
 		return data;
 	}
-	void accept(VisitorI visitor) {
-		visitor.visit(this);
-	}
+	
 	
 }
