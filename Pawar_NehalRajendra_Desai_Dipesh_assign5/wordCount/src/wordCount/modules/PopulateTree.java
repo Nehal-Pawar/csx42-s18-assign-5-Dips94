@@ -20,25 +20,31 @@ public class PopulateTree implements VisitorI{
 	public void testInsert(Node root) {
 		String line = "";
 		FileProcessor fileProcessor = new FileProcessor(Driver.inputFilePath);
-		while (br != null) {
+		//while (br == null) 
+		while(true)
+		{
 			line = fileProcessor.readLine(br);
 			if (line == null) {
 				break;
 			}
 			int bNum = 0;
-			String[] div = line.split(":",-1);
+			//String[] div = line.split(" ",-1);
 			try {
-				bNum = Integer.parseInt(div[0]);	
+				//bNum = Integer.parseInt(div[0]);	
 			}catch(NumberFormatException e) {
 				System.err.println("B-Number should be an Integer");
 				System.exit(0);
 			}
-			insert(root,div[1]);
+			//root=null
+			insert(root,line);
 		}
 	}
 	void insert(Node root,String word) {
-			node = createRec(word);
+			String[] splitword=word.split(" ",-1);
+			for (String s: splitword){
+			node = createRec(s);
 			root = insertToTree(root, node);
+			}
 	}
 
 	public Node createRec(String word){
@@ -46,11 +52,12 @@ public class PopulateTree implements VisitorI{
 	return node;	
 	}
 	public Node insertToTree(Node root,Node node){
-		if (root == null) {
+		if (root==null) {System.out.println("doen");
 			root = node;
-            return root;
+            		return root;
 		}
-		int value = root.data.compareToIgnoreCase(node.data);
+		System.out.println(root.data+"   " +node.data);
+		int value = root.data.compareTo(node.data);
 		
         if (value<0 ) {//leftside root.data is smaller
         	root.left = insertToTree(root.left,node);

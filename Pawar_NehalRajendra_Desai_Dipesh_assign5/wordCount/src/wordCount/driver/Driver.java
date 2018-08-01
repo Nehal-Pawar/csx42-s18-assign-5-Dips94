@@ -6,7 +6,8 @@ import java.io.FileReader;
 
 import wordCount.util.MyLogger;
 import wordCount.util.Results;
-
+import wordCount.treesForStrings.Node;
+import wordCount.modules.PopulateTree;
 
 /**
  * @author Dipesh Desai
@@ -59,5 +60,8 @@ public class Driver {
 			System.err.println("Debug level argument should be an Integer");
 			System.exit(0);
 		}
+		Node n1=new Node();
+		PopulateTree v1=new PopulateTree();
+		n1.accept(v1); 
 	}
 }

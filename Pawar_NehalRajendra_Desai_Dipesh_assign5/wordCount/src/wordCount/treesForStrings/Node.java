@@ -12,6 +12,10 @@ public class Node {
 		data = item;
 		left = right = null;
 	}
+	public Node() {
+		data=null;
+		left = right = null;
+	}
 
 	/* set left node */
 
@@ -48,7 +52,7 @@ public class Node {
 	public String getData() {
 		return data;
 	}
-	void accept(VisitorI visitor) {
+	public void accept(VisitorI visitor) {
 		visitor.visit(this);
 	}
 	
