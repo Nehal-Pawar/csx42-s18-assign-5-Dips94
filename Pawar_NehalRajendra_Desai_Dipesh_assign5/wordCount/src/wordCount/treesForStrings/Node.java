@@ -10,10 +10,6 @@ public class Node {
 		data = item;
 		left = right = null;
 	}
-	public Node() {
-		data=null;
-		left = right = null;
-	}
 
 	/* set left node */
 
@@ -50,12 +46,6 @@ public class Node {
 	public String getData() {
 		return data;
 	}
-<<<<<<< HEAD
 	
-=======
-	public void accept(VisitorI visitor) {
-		visitor.visit(this);
-	}
->>>>>>> branch 'master' of https://github.com/csx42-summer-2018/csx42-s18-assign-5-Dips94
 	
 }
