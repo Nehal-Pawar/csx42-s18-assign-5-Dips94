@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 import wordCount.modules.PopulateTree;
+import wordCount.modules.module2;
 import wordCount.treesForStrings.BST;
 import wordCount.util.MyLogger;
 import wordCount.util.Results;
@@ -64,5 +65,7 @@ public class Driver {
 		BST tree=new BST();
 		PopulateTree v1=new PopulateTree();
 		tree.accept(v1); 
+		module2 v2=new module2();
+		tree.accept(v2); 
 	}
 }
