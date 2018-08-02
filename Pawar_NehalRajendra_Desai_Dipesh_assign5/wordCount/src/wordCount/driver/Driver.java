@@ -8,7 +8,8 @@ import wordCount.modules.PopulateTree;
 import wordCount.treesForStrings.BST;
 import wordCount.util.MyLogger;
 import wordCount.util.Results;
-
+import wordCount.treesForStrings.Node;
+import wordCount.modules.PopulateTree;
 
 /**
  * @author Dipesh Desai
@@ -61,8 +62,14 @@ public class Driver {
 			System.err.println("Debug level argument should be an Integer");
 			System.exit(0);
 		}
+<<<<<<< HEAD
 		BST tree=new BST();
 		PopulateTree v1=new PopulateTree();
 		tree.accept(v1); 
+=======
+		Node n1=new Node();
+		PopulateTree v1=new PopulateTree();
+		n1.accept(v1); 
+>>>>>>> branch 'master' of https://github.com/csx42-summer-2018/csx42-s18-assign-5-Dips94
 	}
 }
