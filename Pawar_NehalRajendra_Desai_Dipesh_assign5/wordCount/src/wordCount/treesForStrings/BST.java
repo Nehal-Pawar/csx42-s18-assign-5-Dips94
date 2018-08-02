@@ -42,6 +42,11 @@ public class BST {
 		else if (value < 0) {// rght side nood data is smaller
 			root.right = insertToTree(root.right, node);
 		}
+		else{
+			root.Rep++;
+			System.out.println(root.Rep);
+		}
+		
 		return root;
 	}
 

@@ -2,13 +2,14 @@ package wordCount.treesForStrings;
 
 public class Node {
 	public String data;
-	int Rep;
+	public int Rep;
 	public Node left, right;
 
 	/* Constructor */
 
 	public Node(String item) {
 		data = item;
+		Rep=1;
 		left = right = null;
 	}
 

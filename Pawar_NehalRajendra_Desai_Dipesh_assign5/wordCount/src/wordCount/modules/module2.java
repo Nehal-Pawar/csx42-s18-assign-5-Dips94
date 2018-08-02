@@ -29,6 +29,7 @@ public class module2 implements VisitorI{
 	public void inorderRec(Node root) {
 		if (root != null) {
 			inorderRec(root.left);
+			for(int i=0;i<root.Rep;i++)
 			count++;
 			NoOfchar=NoOfchar+root.data.length();
 			inorderRec(root.right);
