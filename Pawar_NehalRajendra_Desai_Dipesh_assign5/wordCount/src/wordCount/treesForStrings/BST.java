@@ -24,7 +24,7 @@ public class BST {
 
 	public void updateOccurences(Node node, String word) {
 		if (node.data.equals(word)) {
-			node.data = word;
+			node.Rep += 1;
 		}
 	}
 
@@ -42,17 +42,13 @@ public class BST {
 		else if (value < 0) {// rght side nood data is smaller
 			root.right = insertToTree(root.right, node);
 		}
-		else{
-			root.Rep++;
-			System.out.println(root.Rep);
-		}
-		
 		return root;
 	}
 
 	public Node search(Node root, String word) {
-		if (root == null || root.data.equals(word))
+		if (root == null || root.data.equals(word)) {
 			return root;
+		}
 		int value = root.data.compareTo(word);
 		if (value < 0)
 			return search(root.left, word);
