@@ -67,5 +67,6 @@ public class Driver {
 		tree.accept(v1); 
 		module2 v2=new module2();
 		tree.accept(v2); 
+		v2.Write2.writeToFile("output.txt");
 	}
 }

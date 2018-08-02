@@ -38,7 +38,7 @@ public class module2 implements VisitorI{
 		}
 	}
 	public void numberofcharactersthetree(Node root){
-		System.out.println(NoOfchar);
+		Write2.storeNewResult("No of Char : "+NoOfchar);
 	}
 
 }
