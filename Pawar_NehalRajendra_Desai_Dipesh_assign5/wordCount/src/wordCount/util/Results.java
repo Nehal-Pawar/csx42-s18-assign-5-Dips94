@@ -51,6 +51,6 @@ public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
     {
         TestResult.add(result);
 	writeToStdout(result);
-        MyLogger.writeMessage(result, MyLogger.DebugLevel.AllStates);
+        //MyLogger.writeMessage(result, MyLogger.DebugLevel.AllStates);
     }		
 }

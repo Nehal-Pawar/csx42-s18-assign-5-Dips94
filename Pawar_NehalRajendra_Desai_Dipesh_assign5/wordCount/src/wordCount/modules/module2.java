@@ -2,9 +2,11 @@ package wordCount.modules;
 
 import wordCount.treesForStrings.BST;
 import  wordCount.treesForStrings.Node;
+import wordCount.util.Results;
 
 public class module2 implements VisitorI{
 	Node node;
+	public Results Write2=new Results();
 	int count=0;
 	int distinctWord = 0;
 	int NoOfchar=0;
@@ -20,8 +22,9 @@ public class module2 implements VisitorI{
 		numberofcharactersthetree(root);
 	}
 	public void numberofwords(Node root){	
-		System.out.println("Distinct"+distinctWord);
-		System.out.println(count);
+		Write2.storeNewResult("Distinct : "+distinctWord+"\ntotal words : "+count);
+		/*System.out.println("Distinct : "+distinctWord);
+		System.out.println("total words : "+count);*/
 	}
 	public void inorderRec(Node root) {
 		if (root != null) {

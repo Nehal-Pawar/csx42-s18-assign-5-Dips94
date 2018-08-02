@@ -3,6 +3,7 @@ package wordCount.treesForStrings;
 import wordCount.modules.VisitorI;
 import wordCount.treesForStrings.Node;
 
+
 public class BST {
 	private Node rootNode = null;
 
@@ -23,13 +24,14 @@ public class BST {
 	}
 
 	public void updateOccurences(Node node, String word) {
-		if (node.data.equals(word)) {
+		if (node.data.equals(word)) {//repeated
 			node.Rep += 1;
+			//System.out.println(node.Rep);
 		}
 	}
 
 	public Node insertToTree(Node root, Node node) {
-		if (root == null) {
+		if (root == null) {//assign the first to root and then all new
 			root = node;
 			return root;
 		}
@@ -46,11 +48,11 @@ public class BST {
 	}
 
 	public Node search(Node root, String word) {
-		if (root == null || root.data.equals(word)) {
-			return root;
+		if (root == null || root.data.equals(word)) {//for first root node and matching data
+			return root;//for all new once
 		}
 		int value = root.data.compareTo(word);
-		if (value < 0)
+		if (value < 0)//check
 			return search(root.left, word);
 
 		return search(root.right, word);

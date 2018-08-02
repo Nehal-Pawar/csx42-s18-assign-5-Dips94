@@ -26,6 +26,7 @@ public class PopulateTree implements VisitorI{
 			if (line == null) {
 				break;
 			}
+			if(line.isEmpty())continue;
 			String[] div = line.split(" ",-1);
 			for(int i=0;i<div.length;i++) {
 				tree.insert(div[i]);	
