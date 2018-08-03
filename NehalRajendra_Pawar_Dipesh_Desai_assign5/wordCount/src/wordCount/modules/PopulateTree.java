@@ -32,7 +32,6 @@ public class PopulateTree implements VisitorI{
 				tree.insert(div[i]);	
 			}
 		}
-		tree.inorderRec(tree.getRootNode());
 	}
 
 }
