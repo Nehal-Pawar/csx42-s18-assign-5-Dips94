@@ -22,6 +22,11 @@ ant -buildfile src/build.xml tarzip or tar -zcvf NehalRajendra_Pawar_Dipesh_Desa
 
 -----------------------------------------------------------------------
 
+## Justification of Design Pattern usage: 
+We have used Visitor Design pattern because it allowed us represent an operation to be performed on the nodes of the tree.  So that we could add new operation without changing the class. Many operations need to be performed on node, to avoid "polluting" the node classes with these operations we used visitors that work on same object by passing the visitor as parameter. 
+
+-----------------------------------------------------------------------
+
 "I have done this assignment completely on my own. I have not copied
 it, nor have I given my solution to anyone else. I understand that if
 I am involved in plagiarism or cheating I will have to sign an
@@ -35,6 +40,3 @@ offense.
 
 -----------------------------------------------------------------------
 -----------------------------------------------------------------------
-
-## Justification of Design Pattern usage: 
-We have used Visitor Design pattern because it allowed us represent an operation to be performed on the nodes of the tree.  So that we could add new operation without changing the class. Many operations need to be performed on node, to avoid "polluting" the node classes with these operations we used visitors that work on same object by passing the visitor as parameter. 

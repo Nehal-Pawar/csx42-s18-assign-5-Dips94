@@ -12,7 +12,7 @@ public class FileProcessor
 {
 	public FileProcessor(String filePath) {
 		try {
-			PopulateTree.br = new BufferedReader(new FileReader(filePath));			
+			PopulateTree.br = new BufferedReader(new FileReader(filePath));
 		}catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -29,5 +29,5 @@ public class FileProcessor
 		e.printStackTrace();
 	}
 	return line;
-	}
+}
 }
