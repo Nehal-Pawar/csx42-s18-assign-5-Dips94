@@ -7,9 +7,9 @@ import wordCount.util.Results;
 public class module2 implements VisitorI{
 	Node node;
 	public Results Write2=new Results();
-	int count=0;
-	int distinctWord = 0;
-	int NoOfchar=0;
+	public int count=0;
+	public int distinctWord = 0;
+	public int NoOfchar=0;
 	public module2() {
 		node = null;
 	}
@@ -18,14 +18,8 @@ public class module2 implements VisitorI{
 	public void visit(BST tree) {
 		Node root=tree.getRootNode();
 		inorderRec(root);
-		numberofwords(root);
-		numberofcharactersthetree(root);
 	}
-	public void numberofwords(Node root){	
-		Write2.storeNewResult("Distinct : "+distinctWord+"\ntotal words : "+count);
-		/*System.out.println("Distinct : "+distinctWord);
-		System.out.println("total words : "+count);*/
-	}
+
 	public void inorderRec(Node root) {
 		if (root != null) {
 			inorderRec(root.left);
@@ -36,9 +30,6 @@ public class module2 implements VisitorI{
 			distinctWord++;
 			inorderRec(root.right);
 		}
-	}
-	public void numberofcharactersthetree(Node root){
-		Write2.storeNewResult("No of Char : "+NoOfchar);
 	}
 
 }

@@ -10,7 +10,6 @@ import wordCount.treesForStrings.BST;
 import wordCount.util.MyLogger;
 import wordCount.util.Results;
 
-
 /**
  * @author Dipesh Desai
  *
@@ -22,8 +21,9 @@ public class Driver {
 	 * @return Nothing.
 	 */
 	public static String inputFilePath;
-	public static int kVal;
+	public static int numberOfIterations;
 	public static int debugLevel;
+	public static String outputFilePath;
 
 	public static void main(String[] args)
 			throws FileNotFoundException, NumberFormatException, CloneNotSupportedException {
@@ -32,8 +32,9 @@ public class Driver {
 		 * is not given java takes the default value specified in build.xml. To avoid
 		 * that, below condition is used
 		 */
-		if (args.length != 3 || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")) {
-			System.err.println("Error: Incorrect number of arguments. Program accepts 3 argumnets.");
+		if (args.length != 4 || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")
+				|| args[3].equals("${arg3}")) {
+			System.err.println("Error: Incorrect number of arguments. Program accepts 4 argumnets.");
 			System.exit(0);
 		}
 
@@ -48,10 +49,12 @@ public class Driver {
 			System.exit(0);
 		}
 
+		outputFilePath = args[1];
+
 		try {
-			kVal = Integer.parseInt(args[1]);
+			numberOfIterations = Integer.parseInt(args[2]);
 		} catch (NumberFormatException e) {
-			System.err.println("Value of K should be an Integer");
+			System.err.println("Value of  should be an Integer");
 			System.exit(0);
 		}
 
@@ -62,11 +65,22 @@ public class Driver {
 			System.err.println("Debug level argument should be an Integer");
 			System.exit(0);
 		}
-		BST tree=new BST();
-		PopulateTree v1=new PopulateTree();
-		tree.accept(v1); 
-		module2 v2=new module2();
-		tree.accept(v2); 
-		v2.Write2.writeToFile("output.txt");
+
+		long startTime = System.currentTimeMillis();
+		for (int i = 0; i < numberOfIterations; i++) {
+			BST tree = new BST();
+			PopulateTree v1 = new PopulateTree();
+			tree.accept(v1);
+			module2 v2 = new module2();
+			tree.accept(v2);
+			results.storeNewResult("Distinct : " + v2.distinctWord + "\ntotal words : " + v2.count);
+			results.storeNewResult("No of Char : " + v2.NoOfchar);
+			results.writeToFile(outputFilePath);
+		}
+		long finishTime = System.currentTimeMillis();
+
+		long totalTime = (finishTime - startTime) / numberOfIterations;
+		results.writeToStdout(String.valueOf(totalTime));
+
 	}
 }

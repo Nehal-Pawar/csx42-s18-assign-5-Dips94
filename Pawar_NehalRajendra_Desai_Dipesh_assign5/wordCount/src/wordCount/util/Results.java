@@ -11,7 +11,7 @@ public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
 	public List<String> TestResult = new Vector<String>();
     String result = "";
 
-    /**wriet to output file the list that stores result
+    /**write to output file the list that stores result
      *@param filename
      */
     public void writeToFile(String fileName)
@@ -51,6 +51,6 @@ public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
     {
         TestResult.add(result);
 	writeToStdout(result);
-        //MyLogger.writeMessage(result, MyLogger.DebugLevel.AllStates);
+       // MyLogger.writeMessage(result, MyLogger.DebugLevel.AllStates);
     }		
 }
