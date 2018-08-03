@@ -40,17 +40,22 @@ public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
      */
     public void writeToStdout(String s)
     {
-	MyLogger.writeMessage(s, MyLogger.DebugLevel.AllStates);
+	System.out.println(s);
+	
     }
 
+    public void writeToMyLogger(String s)
+    {
+        MyLogger.writeMessage(s, MyLogger.DebugLevel.AllStates);
+	
+    }
+	
 
     /** store and display result from all tests
      * @param result
      */
-    public void storeNewResult(String result)
+    public void storeToFile(String result)
     {
         TestResult.add(result);
-	writeToStdout(result);
-       // MyLogger.writeMessage(result, MyLogger.DebugLevel.AllStates);
     }		
 }

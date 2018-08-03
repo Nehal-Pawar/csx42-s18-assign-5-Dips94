@@ -34,7 +34,7 @@ public class Driver {
 		 */
 		if (args.length != 4 || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")
 				|| args[3].equals("${arg3}")) {
-			System.err.println("Error: Incorrect number of arguments. Program accepts 4 argumnets.");
+			System.err.println("Error: Incorrect number of arguments. Program accepts 4 argumnets. <input.txt> <output.txt> <Number of iteration> <Debug value> ");
 			System.exit(0);
 		}
 
@@ -54,12 +54,12 @@ public class Driver {
 		try {
 			numberOfIterations = Integer.parseInt(args[2]);
 		} catch (NumberFormatException e) {
-			System.err.println("Value of  should be an Integer");
+			System.err.println("Number of iterations should be an Integer");
 			System.exit(0);
 		}
 
 		try {
-			debugLevel = Integer.parseInt(args[2]);
+			debugLevel = Integer.parseInt(args[3]);
 			MyLogger.setDebugValue(debugLevel);
 		} catch (NumberFormatException e) {
 			System.err.println("Debug level argument should be an Integer");
@@ -67,19 +67,24 @@ public class Driver {
 		}
 
 		long startTime = System.currentTimeMillis();
+		results.writeToMyLogger(String.valueOf(startTime));
 		for (int i = 0; i < numberOfIterations; i++) {
+		results.writeToMyLogger(String.valueOf(i));
 			BST tree = new BST();
 			PopulateTree v1 = new PopulateTree();
 			tree.accept(v1);
 			module2 v2 = new module2();
 			tree.accept(v2);
-			results.storeNewResult("Distinct : " + v2.distinctWord + "\ntotal words : " + v2.count);
-			results.storeNewResult("No of Char : " + v2.NoOfchar);
+			if(i==0){
+			results.storeToFile("Distinct : " + v2.distinctWord + "\ntotal words : " + v2.count);
+			results.storeToFile("No of Char : " + v2.NoOfchar);}
 			results.writeToFile(outputFilePath);
+			
 		}
 		long finishTime = System.currentTimeMillis();
-
+		results.writeToMyLogger(String.valueOf(finishTime));
 		long totalTime = (finishTime - startTime) / numberOfIterations;
+		results.writeToMyLogger(String.valueOf((finishTime - startTime)));		
 		results.writeToStdout(String.valueOf(totalTime));
 
 	}

@@ -36,6 +36,5 @@ offense.
 -----------------------------------------------------------------------
 -----------------------------------------------------------------------
 
-Provide list of citations (urls, etc.) from where you have taken code
-(if any).
-
+## Justification of Design Pattern usage: 
+We have used Visitor Design pattern because it allowed us represent an operation to be performed on the nodes of the tree.  So that we could add new operation without changing the class. Many operations need to be performed on node, to avoid "polluting" the node classes with these operations we used visitors that work on same object by passing the visitor as parameter. 

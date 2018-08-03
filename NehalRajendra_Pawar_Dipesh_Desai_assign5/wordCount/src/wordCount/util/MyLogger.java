@@ -34,6 +34,7 @@ public class MyLogger
     {
         if (levelIn == debugLevel)
             System.out.println(message);
+	
     }
 
     public String toString()

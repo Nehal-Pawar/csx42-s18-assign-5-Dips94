@@ -13,12 +13,20 @@ public class module2 implements VisitorI{
 	public module2() {
 		node = null;
 	}
+	/*
+	** this method calls creates file and calls insert from tree class for every word
+	** @parameter BST class tree
+	*/
 	
 	@Override
 	public void visit(BST tree) {
 		Node root=tree.getRootNode();
 		inorderRec(root);
 	}
+	/*
+	** this method calls traverses  tree  for every word and counts words,charters,distince char
+	** @parameter Node rootnode
+	*/
 
 	public void inorderRec(Node root) {
 		if (root != null) {
