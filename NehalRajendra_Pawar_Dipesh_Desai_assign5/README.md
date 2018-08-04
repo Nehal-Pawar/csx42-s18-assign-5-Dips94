@@ -13,7 +13,7 @@ ant -buildfile src/build.xml all
 
 ant -buildfile src/build.xml run -Darg0=input.txt -Darg1=<no of iterations> -Darg3=<debug value>
 -Darg2=3
-(3th argument 1=FILE_PROCESSOR 2=CONSTRUCTOR 3=AllStates)
+(4 argument 1=VERBOSE 2=DEBUG 3=LOG)
 
 -----------------------------------------------------------------------
 
