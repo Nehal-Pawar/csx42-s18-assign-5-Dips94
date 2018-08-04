@@ -1,44 +1,43 @@
 package wordCount.util;
 
+/**
+ * @author Dipesh Desai
+ *
+ */
+public class MyLogger {
+	public static enum DebugLevel {
+		LOG, DEBUG, NONE , VERBOSE
+	};
 
-public class MyLogger
-{
+	private static DebugLevel debugLevel;
 
-    // FIXME: Add more enum values as needed for the assignment
-    public static enum DebugLevel
-    {
-        CONSTRUCTOR, FILE_PROCESSOR, AllStates, NONE
-    };
+	public static void setDebugValue(int levelIn) {
+		switch (levelIn) {
+		case 3:
+			debugLevel = DebugLevel.VERBOSE;
+			break;
+		case 2:
+			debugLevel = DebugLevel.DEBUG;
+			break;
+		case 1:
+			debugLevel = DebugLevel.LOG;
+			break;
+		default:
+			debugLevel = DebugLevel.NONE;
+			break;
+		}
+	}
 
-    private static DebugLevel debugLevel;
+	public static void setDebugValue(DebugLevel levelIn) {
+		debugLevel = levelIn;
+	}
 
-   
-    public static void setDebugValue(int levelIn)
-    {
-        switch (levelIn)
-        {
-            case 3: debugLevel = DebugLevel.AllStates; break;
-            case 2: debugLevel = DebugLevel.CONSTRUCTOR; break;
-            case 1: debugLevel = DebugLevel.FILE_PROCESSOR; break;
-            default: debugLevel = DebugLevel.NONE; break;
-        }
-    }
+	public static void writeMessage(DebugLevel levelIn,String message) {
+		if (levelIn == debugLevel)
+			System.out.println(message);
+	}
 
-    public static void setDebugValue(DebugLevel levelIn)
-    {
-        debugLevel = levelIn;
-    }
-
-    public static void writeMessage(String message,
-                                     DebugLevel levelIn)
-    {
-        if (levelIn == debugLevel)
-            System.out.println(message);
-	
-    }
-
-    public String toString()
-    {
-        return "The debug level has been set to the following " + debugLevel;
-    }
+	public String toString() {
+		return "The debug level has been set to the following " + debugLevel;
+	}
 }

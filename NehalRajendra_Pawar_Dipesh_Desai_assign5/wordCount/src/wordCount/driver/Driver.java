@@ -8,6 +8,7 @@ import wordCount.modules.PopulateTree;
 import wordCount.modules.module2;
 import wordCount.treesForStrings.BST;
 import wordCount.util.MyLogger;
+import wordCount.util.MyLogger.DebugLevel;
 import wordCount.util.Results;
 
 /**
@@ -67,24 +68,22 @@ public class Driver {
 		}
 
 		long startTime = System.currentTimeMillis();
-		results.writeToMyLogger(String.valueOf(startTime));
+		MyLogger.writeMessage(DebugLevel.DEBUG,"Start Time"+String.valueOf(startTime));
 		for (int i = 0; i < numberOfIterations; i++) {
-		results.writeToMyLogger(String.valueOf(i));
+		MyLogger.writeMessage(DebugLevel.LOG,String.valueOf(i));
 			BST tree = new BST();
 			PopulateTree v1 = new PopulateTree();
 			tree.accept(v1);
 			module2 v2 = new module2();
 			tree.accept(v2);
-			if(i==0){
-			results.storeToFile("Distinct : " + v2.distinctWord + "\ntotal words : " + v2.count);
-			results.storeToFile("No of Char : " + v2.NoOfchar);}
+			results.storeNewResult("Distinct : " + v2.distinctWord + "\ntotal words : " + v2.count);
+			results.storeNewResult("No of Char : " + v2.NoOfchar);
 			results.writeToFile(outputFilePath);
-			
 		}
 		long finishTime = System.currentTimeMillis();
-		results.writeToMyLogger(String.valueOf(finishTime));
+		MyLogger.writeMessage(DebugLevel.DEBUG,"End Time"+String.valueOf(finishTime));
 		long totalTime = (finishTime - startTime) / numberOfIterations;
-		results.writeToMyLogger(String.valueOf((finishTime - startTime)));		
+		MyLogger.writeMessage(DebugLevel.DEBUG,"Total Time"+String.valueOf((finishTime - startTime)));		
 		results.writeToStdout(String.valueOf(totalTime));
 
 	}

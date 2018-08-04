@@ -1,10 +1,9 @@
 package wordCount.util;
 
-import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.util.List;
 import java.util.Vector;
-import wordCount.util.MyLogger;
 
 public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
 
@@ -16,7 +15,6 @@ public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
      */
     public void writeToFile(String fileName)
     {
-        // FileOutputStream outputStream;
         try
         {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
@@ -40,21 +38,14 @@ public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
      */
     public void writeToStdout(String s)
     {
-	System.out.println(s);
-	
+    	System.out.println(s);
     }
 
-    public void writeToMyLogger(String s)
-    {
-        MyLogger.writeMessage(s, MyLogger.DebugLevel.AllStates);
-	
-    }
-	
 
     /** store and display result from all tests
      * @param result
      */
-    public void storeToFile(String result)
+    public void storeNewResult(String result)
     {
         TestResult.add(result);
     }		

@@ -11,7 +11,7 @@ ant -buildfile src/build.xml all
 ## To run by specifying arguments from command line 
 ## We will use this to run your code
 
-ant -buildfile src/build.xml run -Darg0=input.txt -Darg1=3 
+ant -buildfile src/build.xml run -Darg0=input.txt -Darg1=<no of iterations> -Darg3=<debug value>
 -Darg2=3
 (3th argument 1=FILE_PROCESSOR 2=CONSTRUCTOR 3=AllStates)
 
@@ -19,6 +19,11 @@ ant -buildfile src/build.xml run -Darg0=input.txt -Darg1=3
 
 ## To create tarball for submission
 ant -buildfile src/build.xml tarzip or tar -zcvf NehalRajendra_Pawar_Dipesh_Desai_assign5.tar.gz NehalRajendra_Pawar_Dipesh_Desai_assign5
+
+-----------------------------------------------------------------------
+
+## Justification of Design Pattern usage: 
+We have used Visitor Design pattern because it allowed us represent an operation to be performed on the nodes of the tree.  So that we could add new operation without changing the class. Many operations need to be performed on node, to avoid "polluting" the node classes with these operations we used visitors that work on same object by passing the visitor as parameter. 
 
 -----------------------------------------------------------------------
 
@@ -35,6 +40,3 @@ offense.
 
 -----------------------------------------------------------------------
 -----------------------------------------------------------------------
-
-## Justification of Design Pattern usage: 
-We have used Visitor Design pattern because it allowed us represent an operation to be performed on the nodes of the tree.  So that we could add new operation without changing the class. Many operations need to be performed on node, to avoid "polluting" the node classes with these operations we used visitors that work on same object by passing the visitor as parameter. 
